@@ -1,0 +1,267 @@
+software/
+├── vision/
+│   ├── face_detector.py
+│   ├── emotion_detector.py
+│
+├── perception/
+│   ├── tracker.py
+│   ├── filters.py
+│
+├── emotion_engine/
+│   ├── state_machine.py
+│   ├── rules.py
+│
+├── control/
+│   ├── ik_solver.py
+│   ├── motion_smoother.py
+│
+├── comms/
+│   ├── serial_link.py
+│
+├── main.py
+└── config.yaml
+
+
+D9  → Base rotation   → 30°(right) to 150°(left)
+D10 → Lift joint      → 0°(up)  to 60°(down)
+D11 → Elbow joint     → 30°(back) to 150°(front)
+
+
+
+#include <Servo.h>
+
+Servo baseS, shoulderS, elbowS;
+
+// Pins
+const int PIN_BASE = 9;
+const int PIN_SHOULDER = 10;
+const int PIN_ELBOW = 11;
+
+// Limits
+const int BASE_MIN = 60, BASE_MAX = 120;
+const int SHOULDER_MIN = 0, SHOULDER_MAX = 60;
+const int ELBOW_MIN = 30, ELBOW_MAX = 150;
+
+// Motion profile (smooth-with-kick)
+const int STEP_FAST = 4;
+const int STEP_SLOW = 1;
+const int SWITCH_ZONE = 15;
+const int DELAY_MS = 10;
+
+// Current positions (start neutral)
+int curBase = 90, curShoulder = 0, curElbow = 90;
+
+int clamp(int v, int lo, int hi) { return max(lo, min(hi, v)); }
+
+void moveSmooth(int &cur, int target, Servo &s) {
+  target = clamp(target, 0, 180);
+  while (cur != target) {
+    int dist = abs(target - cur);
+    int step = (dist > SWITCH_ZONE) ? STEP_FAST : STEP_SLOW;
+    cur += (target > cur) ? step : -step;
+    if (abs(target - cur) < step) cur = target;
+    s.write(cur);
+    delay(DELAY_MS);
+  }
+}
+
+void goTo(int b, int sh, int e) {
+  b  = clamp(b,  BASE_MIN,     BASE_MAX);
+  sh = clamp(sh, SHOULDER_MIN, SHOULDER_MAX);
+  e  = clamp(e,  ELBOW_MIN,    ELBOW_MAX);
+  moveSmooth(curBase, b, baseS);
+  moveSmooth(curShoulder, sh, shoulderS);
+  moveSmooth(curElbow, e, elbowS);
+}
+
+void setup() {
+  Serial.begin(115200);
+  baseS.attach(PIN_BASE);
+  shoulderS.attach(PIN_SHOULDER);
+  elbowS.attach(PIN_ELBOW);
+  goTo(90, 0, 90); // Neutral on boot
+}
+
+void loop() {
+  if (!Serial.available()) return;
+
+  // Expect: B:90 S:20 E:120\n
+  String line = Serial.readStringUntil('\n');
+  int b = curBase, s = curShoulder, e = curElbow;
+
+  int ib = line.indexOf("B:");
+  int is = line.indexOf("S:");
+  int ie = line.indexOf("E:");
+  if (ib >= 0) b = line.substring(ib + 2).toInt();
+  if (is >= 0) s = line.substring(is + 2).toInt();
+  if (ie >= 0) e = line.substring(ie + 2).toInt();
+
+  goTo(b, s, e);
+}
+
+
+////////
+
+import time
+import serial
+
+
+class TrackerController:
+    """
+    Face Tracking + Emotion Servo Controller (OBSESSED MODE)
+
+    ✅ Base aggressively follows face left/right
+    ✅ Shoulder aggressively follows face up/down
+    ✅ Elbow controlled by emotion
+    ✅ Smooth but still gives kick
+    ✅ Sends commands to Arduino Uno via Serial
+    """
+
+    def __init__(self, port="COM4", baud=115200):
+
+        # =============================
+        # SERIAL CONNECTION
+        # =============================
+        print("[INFO] Connecting to Arduino...")
+
+        self.ser = serial.Serial(port, baud, timeout=1)
+        time.sleep(2)
+
+        print("[INFO] Arduino connected successfully on", port)
+
+        # =============================
+        # TRACKING PARAMETERS (OBSESSED)
+        # =============================
+
+        # Neutral centers (your calibrated pose)
+        self.BASE_CENTER = 90
+        self.SHOULDER_CENTER = 20
+
+        # ✅ OBSESSED GAIN VALUES
+        self.TRACK_GAIN_X = 0.20   # strong left-right follow
+        self.TRACK_GAIN_Y = 0.16   # strong up-down follow
+
+        # ✅ Very small deadzone → reacts instantly
+        self.DEADZONE = 10
+
+        # =============================
+        # SERVO LIMITS (SAFE RANGE)
+        # =============================
+
+        # Base gets wide movement
+        self.BASE_MIN, self.BASE_MAX = 20, 160
+
+        # Shoulder safe range (plate protected)
+        self.SHOULDER_MIN, self.SHOULDER_MAX = 0, 60
+
+        # Elbow full usable range
+        self.ELBOW_MIN, self.ELBOW_MAX = 30, 150
+
+        # =============================
+        # EMOTION → ELBOW MAPPING
+        # =============================
+
+        self.EMOTION_ELBOW = {
+            "HAPPY": 130,
+            "SAD": 60,
+            "ANGRY": 40,
+            "SURPRISE": 150,
+            "NEUTRAL": 90,
+            "BORED": 80
+        }
+
+        # Prevent duplicate sending
+        self.last_cmd = None
+
+    # =============================
+    # UTILS
+    # =============================
+
+    def clamp(self, val, vmin, vmax):
+        """Limit servo angle inside safe bounds"""
+        return max(vmin, min(val, vmax))
+
+    # =============================
+    # FACE TRACKING CONTROL
+    # =============================
+
+    def compute_tracking_angles(self, face_x, face_y, frame_w, frame_h):
+        """
+        Convert face center → base & shoulder angles
+        """
+
+        # Frame center
+        cx = frame_w // 2
+        cy = frame_h // 2
+
+        # Error from center
+        error_x = face_x - cx
+        error_y = face_y - cy
+
+        # ✅ Deadzone removes micro jitter
+        if abs(error_x) < self.DEADZONE:
+            error_x = 0
+
+        if abs(error_y) < self.DEADZONE:
+            error_y = 0
+
+        # ✅ OBSESSED TRACKING RESPONSE
+        base = self.BASE_CENTER + error_x * self.TRACK_GAIN_X
+
+        # invert vertical axis
+        shoulder = self.SHOULDER_CENTER - error_y * self.TRACK_GAIN_Y
+
+        # Clamp safe limits
+        base = self.clamp(base, self.BASE_MIN, self.BASE_MAX)
+        shoulder = self.clamp(shoulder, self.SHOULDER_MIN, self.SHOULDER_MAX)
+
+        return base, shoulder
+
+    # =============================
+    # EMOTION → SERVO CONTROL
+    # =============================
+
+    def emotion_to_elbow(self, emotion):
+        """
+        Convert emotion label → elbow servo angle
+        """
+
+        elbow = self.EMOTION_ELBOW.get(emotion, 90)
+        elbow = self.clamp(elbow, self.ELBOW_MIN, self.ELBOW_MAX)
+
+        return elbow
+
+    # =============================
+    # SERIAL SEND
+    # =============================
+
+    def send_angles(self, base, shoulder, elbow):
+        """
+        Send servo angles to Arduino Uno
+        Format:  B:90 S:20 E:120
+        """
+
+        cmd = f"B:{base:.0f} S:{shoulder:.0f} E:{elbow:.0f}"
+
+        # Avoid repeating same command
+        if cmd == self.last_cmd:
+            return
+
+        self.ser.write((cmd + "\n").encode())
+        self.last_cmd = cmd
+
+        print("[SEND]", cmd)
+
+    # =============================
+    # FAILSAFE + EXIT
+    # =============================
+
+    def neutral(self):
+        """Return robot to safe neutral pose"""
+        self.send_angles(self.BASE_CENTER, self.SHOULDER_CENTER, 90)
+
+    def close(self):
+        """Close Arduino serial cleanly"""
+        print("[INFO] Closing Serial + Reset Neutral Pose")
+        self.neutral()
+        self.ser.close()
