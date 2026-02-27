@@ -1,7 +1,7 @@
 import serial
 import time
 
-ser = serial.Serial("COM7", 115200, timeout=1)
+ser = serial.Serial("COM4", 115200, timeout=1)
 time.sleep(2)
 
 print("Connected to Arduino")
