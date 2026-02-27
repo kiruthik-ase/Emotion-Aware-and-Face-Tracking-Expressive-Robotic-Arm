@@ -7,7 +7,6 @@ from vision.emotion_detector import EmotionDetector
 from perception.filters import EmotionFilter
 from emotion_engine.derived import DerivedEmotionEngine
 from emotion_engine.state_machine import EmotionStateMachine
-
 from control.tracker_controller import TrackerController
 
 
@@ -15,10 +14,9 @@ from control.tracker_controller import TrackerController
 # CONFIG
 # ==============================
 VIDEO_SOURCE = 0
-MODEL_PATH = r"C:\Users\LENOVO\robo sem 4\software\models\yolov8n-face.pt"
+MODEL_PATH = "models/yolov8n-face.pt"
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
-
 print("[INFO] Device:", DEVICE)
 
 DISPLAY_WIDTH = 1280
@@ -38,9 +36,7 @@ emotion_filter = EmotionFilter(window_size=12,
 derived_engine = DerivedEmotionEngine(bored_time_sec=5.0)
 state_machine = EmotionStateMachine(window_size=12, threshold=7)
 
-
 controller = TrackerController(port="COM4")
-
 
 cap = cv2.VideoCapture(VIDEO_SOURCE)
 WINDOW_NAME = "Desk Assistant Robot"
@@ -59,7 +55,6 @@ while cap.isOpened():
         break
 
     frame = cv2.flip(frame, 1)
-
     h, w, _ = frame.shape
 
     # ---------- FACE DETECT ----------
@@ -69,14 +64,19 @@ while cap.isOpened():
         box = results[0].boxes[0].xyxy[0].cpu().numpy().astype(int)
         x1, y1, x2, y2 = box
 
+        # Clamp to frame bounds
+        x1, y1 = max(0, x1), max(0, y1)
+        x2, y2 = min(w, x2), min(h, y2)
+
+        # Face center for tracking
         face_x = (x1 + x2) // 2
         face_y = (y1 + y2) // 2
 
-        face_crop = frame[y1:y2, x1:x2]
+        face = frame[y1:y2, x1:x2]
+        cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
 
-        # ---------- EMOTION ----------
-        raw = emotion_detector.predict(face_crop)
-
+        # ---------- EMOTION PIPELINE ----------
+        raw = emotion_detector.predict(face)
         derived = derived_engine.update(raw)
         base_emotion, _ = emotion_filter.update(raw)
 
@@ -87,27 +87,21 @@ while cap.isOpened():
         else:
             final_emotion = state_machine.update(None)
 
-        # ---------- TRACKING ANGLES ----------
-        base_angle, shoulder_angle = controller.compute_tracking_angles(
-            face_x, face_y, w, h
-        )
-
-        # ---------- ELBOW FROM EMOTION ----------
-        elbow_angle = controller.emotion_to_elbow(final_emotion)
-
-        # ---------- SEND ----------
-        controller.send_angles(base_angle, shoulder_angle, elbow_angle)
-        controller.send_emotion(final_emotion) 
-        # Draw box
-        cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
+        # ---------- ALWAYS-TRACKING + EMOTION CONTROL ----------
+        controller.update(face_x, face_y, w, h, final_emotion)
 
     else:
-        controller.neutral()
+        final_emotion = state_machine.update(None)
+
+        # ---------- GRADUAL NEUTRAL RETURN ----------
+        controller.no_face()
+
+    # ---------- FPS ----------
+    now = time.time()
+    fps = int(1 / (now - prev_time)) if (now - prev_time) > 0 else 0
+    prev_time = now
 
     # ---------- DISPLAY ----------
-    fps = int(1 / (time.time() - prev_time))
-    prev_time = time.time()
-
     cv2.putText(frame, f"Emotion: {final_emotion}",
                 (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 1,
                 (255, 255, 255), 2)
@@ -119,10 +113,8 @@ while cap.isOpened():
     frame = cv2.resize(frame, (DISPLAY_WIDTH, DISPLAY_HEIGHT))
     cv2.imshow(WINDOW_NAME, frame)
 
-    # Exit
     if cv2.waitKey(1) & 0xFF == ord("q"):
         break
-
     if cv2.getWindowProperty(WINDOW_NAME, cv2.WND_PROP_VISIBLE) < 1:
         break
 

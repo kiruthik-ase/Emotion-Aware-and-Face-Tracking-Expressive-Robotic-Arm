@@ -11,7 +11,7 @@
 ![OpenCV](https://img.shields.io/badge/OpenCV-Vision-5C3317?style=for-the-badge&logo=opencv&logoColor=white)
 
 </div>
-
++++
 ---
 
 ## What Makes This Special
@@ -97,7 +97,7 @@ git clone https://github.com/yourusername/Emotion-Aware-and-Face-Tracking-Expres
 pip install ultralytics deepface opencv-python torch pyserial
 
 # 2. Set your Arduino COM port in main_track.py
-controller = TrackerController(port="COM8")
+controller = TrackerController(port="COM4")
 
 # 3. Upload the Arduino sketch (Servo.h based, see notes file)
 

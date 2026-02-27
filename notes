@@ -265,3 +265,176 @@ class TrackerController:
         print("[INFO] Closing Serial + Reset Neutral Pose")
         self.neutral()
         self.ser.close()
+
+
+
+
+
+"""
+#include <Servo.h>
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+
+/* ================= OLED ================= */
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 64
+#define OLED_RESET -1
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
+
+String currentEmotion = "NEUTRAL";
+
+/* ================= SERVOS ================= */
+Servo baseS, shoulderS, elbowS;
+
+// Pins
+const int PIN_BASE = 9;
+const int PIN_SHOULDER = 10;
+const int PIN_ELBOW = 11;
+
+// Limits
+const int BASE_MIN = 60, BASE_MAX = 120;
+const int SHOULDER_MIN = 0, SHOULDER_MAX = 60;
+const int ELBOW_MIN = 30, ELBOW_MAX = 150;
+
+// Motion profile (smooth-with-kick)
+const int STEP_FAST = 4;
+const int STEP_SLOW = 1;
+const int SWITCH_ZONE = 15;
+const int DELAY_MS = 10;
+
+// Current positions (start neutral)
+int curBase = 90, curShoulder = 0, curElbow = 90;
+
+int clamp(int v, int lo, int hi) { return max(lo, min(hi, v)); }
+
+void moveSmooth(int &cur, int target, Servo &s) {
+  target = clamp(target, 0, 180);
+  while (cur != target) {
+    int dist = abs(target - cur);
+    int step = (dist > SWITCH_ZONE) ? STEP_FAST : STEP_SLOW;
+    cur += (target > cur) ? step : -step;
+    if (abs(target - cur) < step) cur = target;
+    s.write(cur);
+    delay(DELAY_MS);
+  }
+}
+
+void goTo(int b, int sh, int e) {
+  b  = clamp(b,  BASE_MIN,     BASE_MAX);
+  sh = clamp(sh, SHOULDER_MIN, SHOULDER_MAX);
+  e  = clamp(e,  ELBOW_MIN,    ELBOW_MAX);
+
+  moveSmooth(curBase, b, baseS);
+  moveSmooth(curShoulder, sh, shoulderS);
+  moveSmooth(curElbow, e, elbowS);
+}
+
+/* ================= OLED FACE HELPERS ================= */
+
+void drawEyes(int lx, int rx, int y) {
+  display.fillCircle(lx, y, 6, SSD1306_WHITE);
+  display.fillCircle(rx, y, 6, SSD1306_WHITE);
+}
+
+void drawSmile() {
+  display.drawLine(45, 42, 55, 50, SSD1306_WHITE);
+  display.drawLine(55, 50, 73, 50, SSD1306_WHITE);
+  display.drawLine(73, 50, 83, 42, SSD1306_WHITE);
+}
+
+void drawFrown() {
+  display.drawLine(45, 52, 55, 44, SSD1306_WHITE);
+  display.drawLine(55, 44, 73, 44, SSD1306_WHITE);
+  display.drawLine(73, 44, 83, 52, SSD1306_WHITE);
+}
+
+void updateFace() {
+
+  display.clearDisplay();
+
+  if (currentEmotion == "HAPPY") {
+    drawEyes(40, 88, 24);
+    drawSmile();
+  }
+  else if (currentEmotion == "SAD") {
+    drawEyes(40, 88, 24);
+    drawFrown();
+  }
+  else if (currentEmotion == "ANGRY") {
+    drawEyes(40, 88, 26);
+    display.drawLine(30, 18, 50, 12, SSD1306_WHITE);
+    display.drawLine(78, 12, 98, 18, SSD1306_WHITE);
+    display.drawLine(44, 46, 84, 46, SSD1306_WHITE);
+  }
+  else if (currentEmotion == "SURPRISE") {
+    drawEyes(40, 88, 22);
+    display.drawCircle(64, 48, 8, SSD1306_WHITE);
+  }
+  else if (currentEmotion == "BORED") {
+    display.drawLine(34, 24, 46, 24, SSD1306_WHITE);
+    display.drawLine(82, 24, 94, 24, SSD1306_WHITE);
+    display.drawLine(44, 46, 84, 46, SSD1306_WHITE);
+  }
+  else {
+    drawEyes(40, 88, 24);
+    display.drawLine(44, 46, 84, 46, SSD1306_WHITE);
+  }
+
+  display.display();
+}
+
+/* ================= SETUP ================= */
+
+void setup() {
+  Serial.begin(115200);
+
+  baseS.attach(PIN_BASE);
+  shoulderS.attach(PIN_SHOULDER);
+  elbowS.attach(PIN_ELBOW);
+
+  goTo(90, 0, 90); // Neutral
+
+  // OLED init
+  Wire.setClock(100000);
+  display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
+
+  updateFace();
+}
+
+/* ================= LOOP ================= */
+
+void loop() {
+
+  if (!Serial.available()) return;
+
+  String line = Serial.readStringUntil('\n');
+  line.trim();
+
+  // ✅ SERVO COMMAND
+  if (line.startsWith("B:")) {
+
+    int b = curBase, s = curShoulder, e = curElbow;
+
+    int ib = line.indexOf("B:");
+    int is = line.indexOf("S:");
+    int ie = line.indexOf("E:");
+
+    if (ib >= 0) b = line.substring(ib + 2).toInt();
+    if (is >= 0) s = line.substring(is + 2).toInt();
+    if (ie >= 0) e = line.substring(ie + 2).toInt();
+
+    goTo(b, s, e);
+  }
+
+  // ✅ EMOTION COMMAND
+  else if (line.startsWith("EMO:")) {
+
+    currentEmotion = line.substring(4);
+    currentEmotion.trim();
+
+    updateFace();
+  }
+}
+
+"""
