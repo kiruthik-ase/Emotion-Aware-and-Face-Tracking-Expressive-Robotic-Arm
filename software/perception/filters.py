@@ -5,12 +5,15 @@ class EmotionFilter:
     def __init__(
         self,
         window_size=12,
-        min_confidence=0.55,
+        min_confidence=0.60,
         dominance_margin=0.15
     ):
         self.window = deque(maxlen=window_size)
         self.min_confidence = min_confidence
         self.dominance_margin = dominance_margin
+
+        # Emotions to suppress (almost always false positives)
+        self.suppressed = {"fear", "disgust"}
 
     def update(self, emotions: dict):
         """
@@ -21,9 +24,16 @@ class EmotionFilter:
         if not emotions:
             return None, 0.0
 
+        # Remove suppressed emotions before ranking
+        filtered = {k: v for k, v in emotions.items()
+                    if k not in self.suppressed}
+
+        if len(filtered) < 2:
+            return None, 0.0
+
         # Sort by confidence
         sorted_emotions = sorted(
-            emotions.items(),
+            filtered.items(),
             key=lambda x: x[1],
             reverse=True
         )
