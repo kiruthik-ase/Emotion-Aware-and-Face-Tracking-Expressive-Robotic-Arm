@@ -12,18 +12,21 @@ class EmotionStateMachine:
         returns: stable emotion
         """
 
+        # If the model is uncertain (None), vote for NEUTRAL rather than
+        # repeating the last emotion. Repeating makes the system "stick" (e.g.
+        # once HAPPY becomes stable, it can stay HAPPY forever).
         if emotion is None:
-            self.history.append(self.current_emotion)
+            self.history.append("NEUTRAL")
         else:
             self.history.append(emotion)
 
         # Count votes
-        counts = {}
+        counts: dict[str, int] = {}
         for e in self.history:
             counts[e] = counts.get(e, 0) + 1
 
         # Find dominant emotion
-        dominant = max(counts, key=counts.get)
+        dominant = max(counts, key=lambda k: counts[k])
 
         if counts[dominant] >= self.threshold:
             self.current_emotion = dominant
