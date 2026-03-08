@@ -694,44 +694,14 @@
 
         <p class="sim-intro">
           Watch the full system in action — real-time face detection, emotion recognition,
-          servo-controlled arm expressions, and OLED face display working together.
+          servo-controlled arm expressions, and OLED face display working together along with a demo mode to showcase all emotions.
         </p>
 
         <div class="video-container">
-          <!-- Replace VIDEO_ID with your YouTube video ID -->
-          <div class="video-placeholder" id="video-placeholder">
-            <div class="video-placeholder-inner">
-              <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-                <circle cx="40" cy="40" r="38" stroke="#00ffc8" stroke-width="2" fill="rgba(0,255,200,0.05)"/>
-                <polygon points="32,24 32,56 60,40" fill="#00ffc8" opacity="0.8"/>
-              </svg>
-              <p style="margin-top:1rem;color:var(--accent);font-size:1.1rem;font-weight:600;">Project Demo Video</p>
-              <p style="color:var(--text-secondary);font-size:0.85rem;margin-top:0.5rem;">
-                To embed your video, replace <code>VIDEO_ID</code> in the HTML with your YouTube video ID.<br>
-                Or drop your video file in <code>docs/</code> and use a <code>&lt;video&gt;</code> tag.
-              </p>
-            </div>
-          </div>
-          <!--
-            YOUTUBE EMBED: Uncomment the iframe below and replace VIDEO_ID with your YouTube video ID.
-            Then remove or comment out the video-placeholder div above.
-
-            <iframe
-              src="https://www.youtube.com/embed/VIDEO_ID"
-              title="Emotion-Aware Robotic Arm Demo"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
-          -->
-          <!--
-            LOCAL VIDEO: If you prefer a local video file, uncomment below:
-
-            <video controls width="100%" poster="img/thumbnail.jpg">
-              <source src="demo.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          -->
+          <video controls preload="metadata" style="width:100%;display:block;">
+            <source src="robo_demo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
         </div>
 
         <div class="video-highlights">
