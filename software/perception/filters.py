@@ -12,6 +12,9 @@ class EmotionFilter:
         self.min_confidence = min_confidence
         self.dominance_margin = dominance_margin
 
+        # Emotions to suppress (almost always false positives from DeepFace)
+        self.suppressed = {"fear", "disgust"}
+
     def update(self, emotions: dict):
         """
         emotions: dict[str, float]
@@ -21,9 +24,16 @@ class EmotionFilter:
         if not emotions:
             return None, 0.0
 
+        # Remove suppressed emotions before ranking
+        filtered = {k: v for k, v in emotions.items()
+                    if k not in self.suppressed}
+
+        if len(filtered) < 2:
+            return None, 0.0
+
         # Sort by confidence
         sorted_emotions = sorted(
-            emotions.items(),
+            filtered.items(),
             key=lambda x: x[1],
             reverse=True
         )
