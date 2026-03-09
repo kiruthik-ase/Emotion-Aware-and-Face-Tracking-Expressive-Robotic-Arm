@@ -6,13 +6,7 @@
   <title>Emotion-Aware Face-Tracking Robotic Arm</title>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-
-  <!-- KaTeX -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
-    onload="renderMathInElement(document.body, {delimiters: [{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
 
   <!-- Three.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -28,47 +22,50 @@
     <div class="sidebar-header">
       <div class="sidebar-icon">
         <svg width="40" height="40" viewBox="0 0 40 40">
-          <rect x="8" y="22" width="24" height="4" rx="2" fill="#00ffc8"/>
-          <rect x="14" y="14" width="12" height="8" rx="2" fill="#00ffc8" opacity="0.7"/>
-          <circle cx="17" cy="18" r="2" fill="#0a0e14"/>
-          <circle cx="23" cy="18" r="2" fill="#0a0e14"/>
-          <rect x="12" y="26" width="4" height="8" rx="1" fill="#00ffc8" opacity="0.5"/>
-          <rect x="24" y="26" width="4" height="8" rx="1" fill="#00ffc8" opacity="0.5"/>
+          <rect x="8" y="22" width="24" height="4" rx="0" fill="#000"/>
+          <rect x="14" y="14" width="12" height="8" rx="0" fill="#000" opacity="0.7"/>
+          <circle cx="17" cy="18" r="2" fill="#fff"/>
+          <circle cx="23" cy="18" r="2" fill="#fff"/>
+          <rect x="12" y="26" width="4" height="8" rx="0" fill="#000" opacity="0.5"/>
+          <rect x="24" y="26" width="4" height="8" rx="0" fill="#000" opacity="0.5"/>
         </svg>
       </div>
       <div class="sidebar-title">
-        <span class="sidebar-lab">AIE LAB // GROUP 3</span>
+        <span class="sidebar-lab">GROUP 3 // 22AIE214</span>
         <span class="sidebar-project">Emotion-Aware<br>Robotic Arm</span>
       </div>
     </div>
 
-    <div class="sidebar-nav-label">// NAVIGATION</div>
+    <div class="sidebar-nav-label">// SECTIONS</div>
     <ul class="sidebar-links">
-      <li><a href="#home" class="active"><span class="nav-icon">⚡</span> Home <span class="nav-num">00</span></a></li>
-      <li><a href="#introduction"><span class="nav-icon">◎</span> Introduction <span class="nav-num">01</span></a></li>
-      <li><a href="#novelty"><span class="nav-icon">✦</span> Novelty <span class="nav-num">02</span></a></li>
-      <li><a href="#methodology"><span class="nav-icon">⚙</span> Methodology <span class="nav-num">03</span></a></li>
-      <li><a href="#simulation"><span class="nav-icon">▶</span> Simulation <span class="nav-num">04</span></a></li>
-      <li><a href="#results"><span class="nav-icon">▣</span> Results <span class="nav-num">05</span></a></li>
-      <li><a href="#video-demo"><span class="nav-icon">◎</span> Video Demo <span class="nav-num">06</span></a></li>
-      <li><a href="#future-work"><span class="nav-icon">↗</span> Future Work <span class="nav-num">07</span></a></li>
-      <li><a href="#references"><span class="nav-icon">⊞</span> References <span class="nav-num">08</span></a></li>
-      <li><a href="#contributors"><span class="nav-icon">◈</span> Contributors <span class="nav-num">09</span></a></li>
+      <li><a href="#home" class="active"><span class="nav-icon">—</span> Home <span class="nav-num">00</span></a></li>
+      <li><a href="#motivation"><span class="nav-icon">—</span> Motivation <span class="nav-num">01</span></a></li>
+      <li><a href="#use-cases"><span class="nav-icon">—</span> Use Cases <span class="nav-num">02</span></a></li>
+      <li><a href="#overview"><span class="nav-icon">—</span> Overview <span class="nav-num">03</span></a></li>
+      <li><a href="#architecture"><span class="nav-icon">—</span> Architecture <span class="nav-num">04</span></a></li>
+      <li><a href="#hardware"><span class="nav-icon">—</span> Hardware <span class="nav-num">05</span></a></li>
+      <li><a href="#methodology"><span class="nav-icon">—</span> Methodology <span class="nav-num">06</span></a></li>
+      <li><a href="#simulation"><span class="nav-icon">—</span> Simulation <span class="nav-num">07</span></a></li>
+      <li><a href="#results"><span class="nav-icon">—</span> Results <span class="nav-num">08</span></a></li>
+      <li><a href="#video-demo"><span class="nav-icon">—</span> Video Demo <span class="nav-num">09</span></a></li>
+      <li><a href="#conclusion"><span class="nav-icon">—</span> Conclusion <span class="nav-num">10</span></a></li>
+      <li><a href="#references"><span class="nav-icon">—</span> References <span class="nav-num">11</span></a></li>
+      <li><a href="#contributors"><span class="nav-icon">—</span> Contributors <span class="nav-num">12</span></a></li>
     </ul>
 
     <a href="https://github.com/kiruthik-ase/Emotion-Aware-and-Face-Tracking-Expressive-Robotic-Arm" target="_blank" class="sidebar-github">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-      View on GitHub
+      VIEW SOURCE
     </a>
   </nav>
 
   <!-- ========== MAIN CONTENT ========== -->
   <main id="content">
 
-    <!-- ===== HOME ===== -->
+    <!-- ===== 00 · HOME ===== -->
     <section id="home" class="section">
       <div class="section-inner">
-        <div class="hero-badge">● AMRITA SCHOOL OF ARTIFICIAL INTELLIGENCE · 22AIE214</div>
+        <div class="hero-badge">AMRITA SCHOOL OF ARTIFICIAL INTELLIGENCE — 22AIE214 — AI IN ROBOTICS</div>
 
         <h1 class="hero-title">
           <span class="hero-line">EMOTION AWARE</span>
@@ -77,31 +74,31 @@
         </h1>
 
         <p class="hero-subtitle">
-          A real-time AI-powered 3-DOF robotic arm that detects human faces, tracks them
-          with its base and shoulder joints, recognizes their emotional states through a
-          noise-resilient 3-layer pipeline, and physically expresses those emotions through
-          servo-controlled elbow poses — complete with an OLED face display that mirrors
-          the detected emotion.
+          Adding emotional perception as a sensing modality for robotic manipulators.
+          A real-time AI-powered 3-DOF arm that detects faces, continuously tracks them,
+          recognizes emotions through deep learning, stabilizes predictions through a
+          multi-stage pipeline, and physically expresses context-appropriate behavior
+          through servo motion and an OLED facial display.
         </p>
 
         <div class="tech-tags">
           <span class="tag">YOLOv8</span>
           <span class="tag">DeepFace</span>
           <span class="tag">Arduino Uno</span>
-          <span class="tag">3-DOF Arm</span>
-          <span class="tag">Forward Kinematics</span>
-          <span class="tag">Inverse Kinematics</span>
+          <span class="tag">3-DOF Manipulator</span>
           <span class="tag">Real-time</span>
           <span class="tag">SG90 Servos</span>
           <span class="tag">OLED Display</span>
           <span class="tag">Face Tracking</span>
+          <span class="tag">EMA Smoothing</span>
+          <span class="tag">Emotion Pipeline</span>
         </div>
 
         <!-- Architecture Flow -->
         <div class="arch-flow">
           <div class="arch-node">
             <div class="arch-icon-box">📷</div>
-            <div class="arch-label">Webcam</div>
+            <div class="arch-label">Webcam<br><small>1080p</small></div>
           </div>
           <div class="arch-arrow">→</div>
           <div class="arch-node">
@@ -116,405 +113,628 @@
           <div class="arch-arrow">→</div>
           <div class="arch-node">
             <div class="arch-icon-box">🔗</div>
-            <div class="arch-label">3-Layer<br><small>Filter Pipeline</small></div>
+            <div class="arch-label">3-Layer<br><small>Filter</small></div>
+          </div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-node">
+            <div class="arch-icon-box">⚡</div>
+            <div class="arch-label">Tracker<br><small>Controller</small></div>
           </div>
           <div class="arch-arrow">→</div>
           <div class="arch-node">
             <div class="arch-icon-box">🤖</div>
-            <div class="arch-label">Arduino<br><small>3× Servos</small></div>
-          </div>
-          <div class="arch-arrow">→</div>
-          <div class="arch-node">
-            <div class="arch-icon-box">🖥️</div>
-            <div class="arch-label">OLED<br><small>Emotion Face</small></div>
+            <div class="arch-label">Arduino<br><small>3× Servos + OLED</small></div>
           </div>
         </div>
 
         <div class="hero-buttons">
-          <a href="#introduction" class="btn btn-primary">EXPLORE PROJECT →</a>
-          <a href="#simulation" class="btn btn-secondary">▶ LAUNCH SIMULATION</a>
+          <a href="#motivation" class="btn btn-primary">EXPLORE PROJECT →</a>
+          <a href="#simulation" class="btn btn-secondary">LAUNCH SIMULATION</a>
         </div>
       </div>
 
       <div class="section-footer">
-        <span>Emotion-Aware Robotic Arm — AIE 2024</span>
-        <span>Amrita School of Engineering</span>
+        <span>Group 3 — Emotion-Aware Robotic Arm</span>
+        <span>Amrita School of Engineering, Coimbatore</span>
       </div>
     </section>
 
-    <!-- ===== INTRODUCTION ===== -->
-    <section id="introduction" class="section">
+    <!-- ===== 01 · MOTIVATION ===== -->
+    <section id="motivation" class="section">
       <div class="section-inner">
         <div class="section-header">
           <span class="section-num">01</span>
-          <h2>Introduction</h2>
+          <h2>Motivation</h2>
         </div>
 
         <div class="content-block">
-          <h3>Motivation</h3>
+          <h3>The Problem — Robots Are Blind to Humans</h3>
           <p>
-            As robots increasingly enter human environments — from healthcare to education to social assistance —
-            the ability to perceive and respond to human emotions becomes critical for natural interaction.
-            Traditional robotic arms operate as blind actuators with no awareness of the humans around them.
-            This project bridges that gap by creating an <strong>emotion-aware robotic arm</strong> that perceives,
-            interprets, and physically reacts to human facial expressions in real-time.
+            Traditional robots have powerful sensing — cameras, LIDAR, force sensors, proximity sensors.
+            They understand the <strong>physical environment</strong> very well. But they are completely
+            <strong>blind to the humans around them</strong>.
           </p>
-        </div>
-
-        <div class="content-block">
-          <h3>System Overview</h3>
           <p>
-            The system is a <strong>3-DOF serial manipulator</strong> (RRR configuration) driven by an end-to-end
-            AI pipeline. A webcam captures the scene, YOLOv8 detects and localizes faces, DeepFace recognizes
-            the dominant emotion, and a 3-layer noise-resilient filter stabilizes the output before mapping it
-            to physical servo poses on the Arduino-controlled arm.
+            A robot has no idea if the person nearby is stressed or calm, focused or distracted,
+            comfortable or uncomfortable. This project adds a <strong>social sensing layer</strong> —
+            the robot gains emotional context awareness about the humans around it.
           </p>
+          <p><strong>Goal: Move from task-aware robots to context-aware robots.</strong></p>
         </div>
 
         <div class="content-block">
-          <h3>Hardware Configuration</h3>
-          <div class="spec-grid">
-            <div class="spec-card">
-              <div class="spec-title">Controller</div>
-              <div class="spec-value">Arduino Uno</div>
-              <div class="spec-detail">ATmega328P, USB Serial @ 115200 baud</div>
-            </div>
-            <div class="spec-card">
-              <div class="spec-title">Joint 1 — Base</div>
-              <div class="spec-value">D9 · SG90 Servo</div>
-              <div class="spec-detail">Rotation: 60° (right) → 120° (left)</div>
-            </div>
-            <div class="spec-card">
-              <div class="spec-title">Joint 2 — Shoulder</div>
-              <div class="spec-value">D10 · SG90 Servo</div>
-              <div class="spec-detail">Lift: 0° (up) → 60° (down)</div>
-            </div>
-            <div class="spec-card">
-              <div class="spec-title">Joint 3 — Elbow</div>
-              <div class="spec-value">D11 · SG90 Servo</div>
-              <div class="spec-detail">Flex: 30° (back) → 150° (front)</div>
-            </div>
-            <div class="spec-card">
-              <div class="spec-title">Display</div>
-              <div class="spec-value">SSD1306 OLED</div>
-              <div class="spec-detail">128×64px, I²C @ 0x3C — shows emotion faces</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="content-block">
-          <h3>AI Pipeline</h3>
-          <p>The emotion recognition pipeline processes each frame through four stages:</p>
-          <div class="pipeline-stages">
-            <div class="stage">
-              <div class="stage-num">1</div>
-              <div class="stage-info">
-                <strong>Face Detection</strong> — YOLOv8n-face provides bounding box coordinates
-                with GPU acceleration for real-time performance.
-              </div>
-            </div>
-            <div class="stage">
-              <div class="stage-num">2</div>
-              <div class="stage-info">
-                <strong>Emotion Recognition</strong> — DeepFace analyzes the cropped face region
-                and returns probability scores across 7 base emotions.
-              </div>
-            </div>
-            <div class="stage">
-              <div class="stage-num">3</div>
-              <div class="stage-info">
-                <strong>3-Layer Filtering</strong> — Confidence gating, derived emotion logic (EXCITED, BORED),
-                and majority-vote stabilization eliminate noise and prevent jitter.
-              </div>
-            </div>
-            <div class="stage">
-              <div class="stage-num">4</div>
-              <div class="stage-info">
-                <strong>Servo Control</strong> — TrackerController blends face tracking with emotion poses:
-                Base tracks horizontally (gain 0.25, 8px deadzone), shoulder blends 80% emotion + 20% vertical tracking,
-                elbow is purely emotion-driven. EMA smoothing (α=0.30) prevents jitter. Rate-limited to ~12 commands/sec.
-              </div>
-            </div>
-            <div class="stage">
-              <div class="stage-num">5</div>
-              <div class="stage-info">
-                <strong>OLED Feedback</strong> — The Arduino receives emotion labels via <code>EMO:</code> commands
-                and renders expressive pixel faces (eyes, mouth, eyebrows) on a 128×64 SSD1306 OLED display,
-                giving the robot a visible emotional expression.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== NOVELTY ===== -->
-    <section id="novelty" class="section">
-      <div class="section-inner">
-        <div class="section-header">
-          <span class="section-num">02</span>
-          <h2>Novelty</h2>
+          <h3>Why Emotion-Aware Manipulators?</h3>
+          <p>
+            Manipulators already communicate through motion — humans naturally read intent from
+            how an arm moves. Fast feels aggressive. Slow feels safe. Jerky feels broken.
+            But this communication is <strong>accidental</strong>. The arm has no idea what it's expressing.
+          </p>
+          <p>When a manipulator gains emotional awareness, three things happen:</p>
         </div>
 
         <div class="novelty-grid">
           <div class="novelty-card">
             <div class="novelty-num">01</div>
-            <h3>3-Layer Noise-Resilient Pipeline</h3>
+            <h3>It Becomes Safer</h3>
             <p>
-              Raw emotion predictions from deep learning models are inherently noisy — flickering between states
-              multiple times per second. Our system implements a unique 3-layer stabilization approach:
+              It can sense human discomfort or stress and <strong>slow down or stop</strong> — no buttons needed.
+              The robot adapts its speed and behavior based on the person's emotional state, creating
+              an intrinsic safety layer beyond physical sensors.
             </p>
-            <ul>
-              <li><strong>EmotionFilter</strong> — Window-based confidence gating with dominance margin (rejects ambiguous predictions)</li>
-              <li><strong>DerivedEmotionEngine</strong> — Temporal compound logic for detecting EXCITED and BORED states</li>
-              <li><strong>EmotionStateMachine</strong> — Majority-vote sliding window ensures only persistent emotions trigger motion</li>
-            </ul>
           </div>
-
           <div class="novelty-card">
             <div class="novelty-num">02</div>
-            <h3>Compound Derived Emotions</h3>
+            <h3>It Becomes Context-Aware</h3>
             <p>
-              Beyond the 7 base emotions from DeepFace (happy, sad, angry, surprise, fear, disgust, neutral),
-              we derive two additional states using temporal compound logic:
+              It adapts its behavior based on the situation — <strong>gentle in calm moments, cautious
+              in tense ones</strong>. The same task can be performed differently depending on the human's
+              emotional state, making the robot truly situation-adaptive.
             </p>
-            <ul>
-              <li><strong>EXCITED</strong> — Triggered when happy &gt; 0.6 AND surprise &gt; 0.2 simultaneously</li>
-              <li><strong>BORED</strong> — Triggered when neutral persists &gt; 0.9 confidence for over 5 seconds</li>
-            </ul>
-            <p>These derived emotions create richer, more nuanced physical expressions.</p>
           </div>
-
           <div class="novelty-card">
             <div class="novelty-num">03</div>
-            <h3>Aggressive Face Tracking</h3>
+            <h3>It Becomes a Companion</h3>
             <p>
-              The arm doesn't just recognize emotions — it physically follows the user's face in real-time.
-              A proportional controller computes base and shoulder angles from face position error:
+              It responds to people, shows personality, and <strong>feels alive</strong> — not just a machine
+              executing commands. Emotion turns a tool into a teammate.
             </p>
-            <ul>
-              <li><strong>Base (horizontal)</strong> — Gain: 0.25 · error + emotion offset, range 60°–120°</li>
-              <li><strong>Shoulder (vertical)</strong> — 80% emotion pose + 20% tracking (gain 0.25), range 0°–60°</li>
-              <li><strong>Elbow</strong> — 100% emotion-driven, range 30°–150°</li>
-              <li><strong>Deadzone</strong> — 8px threshold, EMA α=0.30, ≥2° change gate</li>
-            </ul>
-            <p>The arm appears "obsessed" with following the user, reacting instantly to head movements.</p>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="novelty-card">
-            <div class="novelty-num">04</div>
-            <h3>OLED Emotion Face Display</h3>
-            <p>
-              The robot physically wears its emotion. A 128×64 SSD1306 OLED display mounted on the arm
-              renders pixel-art faces corresponding to each detected emotion:
-            </p>
-            <ul>
-              <li><strong>HAPPY</strong> — Round eyes + upward smile curve</li>
-              <li><strong>SAD</strong> — Round eyes + downward frown curve</li>
-              <li><strong>ANGRY</strong> — Eyes with slanted angry eyebrows + flat mouth</li>
-              <li><strong>SURPRISE</strong> — Wide eyes + open O-shaped mouth</li>
-              <li><strong>BORED</strong> — Half-line eyes + flat mouth</li>
-              <li><strong>NEUTRAL</strong> — Normal eyes + straight line mouth</li>
-            </ul>
+    <!-- ===== 02 · USE CASES ===== -->
+    <section id="use-cases" class="section">
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="section-num">02</span>
+          <h2>Use Cases</h2>
+        </div>
+
+        <div class="content-block">
+          <p>Emotion-aware manipulation opens up applications across industries where robots interact with humans:</p>
+        </div>
+
+        <div class="spec-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+          <div class="spec-card">
+            <div class="spec-title">HEALTHCARE</div>
+            <div class="spec-value">Medical / Surgical Assist</div>
+            <div class="spec-detail">
+              Detects surgeon's focus and stress level. Adjusts responsiveness to situation urgency.
+              A stressed surgeon gets slower, more predictable robot motion.
+            </div>
           </div>
-
-          <div class="novelty-card">
-            <div class="novelty-num">05</div>
-            <h3>Emotion-to-Motion Physical Expression</h3>
-            <p>
-              Each stabilized emotion maps to a unique arm pose, creating an intuitive physical language:
-            </p>
-            <div class="emotion-table">
-              <table>
-                <thead>
-                  <tr><th>Emotion</th><th>Base</th><th>Shoulder</th><th>Elbow</th><th>Expression</th></tr>
-                </thead>
-                <tbody>
-                  <tr><td>😊 HAPPY</td><td>100°</td><td>20°</td><td>120°</td><td>Cheerful, arm raised &amp; extended</td></tr>
-                  <tr><td>🤩 EXCITED</td><td>100°</td><td>10°</td><td>140°</td><td>High energy, big extension</td></tr>
-                  <tr><td>😲 SURPRISE</td><td>90°</td><td>5°</td><td>150°</td><td>Fully extended, shocked</td></tr>
-                  <tr><td>😐 NEUTRAL</td><td>90°</td><td>0°</td><td>90°</td><td>Relaxed rest position</td></tr>
-                  <tr><td>😴 BORED</td><td>95°</td><td>10°</td><td>80°</td><td>Slightly drooped, restless</td></tr>
-                  <tr><td>😢 SAD</td><td>80°</td><td>50°</td><td>60°</td><td>Droopy, arm low &amp; folded</td></tr>
-                  <tr><td>😡 ANGRY</td><td>110°</td><td>35°</td><td>40°</td><td>Tense, folded tight</td></tr>
-                </tbody>
-              </table>
+          <div class="spec-card">
+            <div class="spec-title">MANUFACTURING</div>
+            <div class="spec-value">Collaborative Robotics</div>
+            <div class="spec-detail">
+              Robot adapts speed when the worker is stressed. Expressive motion signals intent,
+              making human-robot interaction safer in shared workspaces.
+            </div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-title">ENTERTAINMENT</div>
+            <div class="spec-value">Chess Playing Robot</div>
+            <div class="spec-detail">
+              Reads opponent's emotions to gain situational awareness like a real player.
+              Adapts playing style and body language based on confidence or frustration.
+            </div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-title">CONSUMER</div>
+            <div class="spec-value">Companion / Desk Pet</div>
+            <div class="spec-detail">
+              A desk companion with personality (like Dum-E from Iron Man).
+              Engaging interaction through emotional expression — reacts to your mood.
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== METHODOLOGY ===== -->
-    <section id="methodology" class="section">
+    <!-- ===== 03 · PROJECT OVERVIEW ===== -->
+    <section id="overview" class="section">
       <div class="section-inner">
         <div class="section-header">
           <span class="section-num">03</span>
+          <h2>Project Overview</h2>
+        </div>
+
+        <div class="content-block">
+          <h3>The System</h3>
+          <p>
+            A real-time AI-powered robotic manipulator that detects human faces, continuously tracks them,
+            recognizes the person's emotional state through deep learning, stabilizes the emotion through a
+            multi-stage filtering pipeline, and physically expresses context-appropriate behavior through
+            expressive servo motion and an OLED facial display.
+          </p>
+          <ul>
+            <li>Detects faces in real-time (YOLOv8, GPU-accelerated)</li>
+            <li>Tracks face continuously (arm follows you)</li>
+            <li>Recognizes emotions (DeepFace, 7 base emotions)</li>
+            <li>Stabilizes through 3-layer pipeline (filter → derive → vote)</li>
+            <li>Expresses emotion through full-body poses (3 servos)</li>
+            <li>Displays emotion face on OLED (pixel-art expressions)</li>
+          </ul>
+        </div>
+
+        <div class="content-block">
+          <h3>Two Simultaneous Loops</h3>
+          <p>Both run every frame. The robot watches you AND reacts to your mood simultaneously.</p>
+          <div class="pipeline-stages">
+            <div class="stage">
+              <div class="stage-num">1</div>
+              <div class="stage-info">
+                <strong>Loop 1 — Physical Tracking</strong><br>
+                Camera → Face Position → Error Calculation → Servo Motion<br>
+                The arm physically follows the user's face in real-time.
+              </div>
+            </div>
+            <div class="stage">
+              <div class="stage-num">2</div>
+              <div class="stage-info">
+                <strong>Loop 2 — Emotional Perception</strong><br>
+                Camera → Face Crop → Emotion AI → 3-Layer Filter → Behavior Adaptation<br>
+                The arm adapts its posture and expression based on detected emotion.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 04 · ARCHITECTURE ===== -->
+    <section id="architecture" class="section">
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="section-num">04</span>
+          <h2>System Architecture</h2>
+        </div>
+
+        <div class="content-block">
+          <h3>End-to-End Pipeline</h3>
+
+          <div class="arch-side-by-side" style="display:flex;gap:2rem;align-items:flex-start;flex-wrap:wrap;">
+
+          <!-- LEFT: Architecture Flowchart (SVG) -->
+          <div class="arch-diagram" style="flex:1 1 420px;min-width:360px;max-width:520px;overflow-x:auto;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 790" style="width:100%;height:auto;font-family:'JetBrains Mono',monospace;">
+              <defs>
+                <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#000"/></marker>
+                <style>
+                  .box{fill:#fff;stroke:#000;stroke-width:2}
+                  .box-blue{fill:#fff;stroke:#3366cc;stroke-width:2}
+                  .box-red{fill:#fff;stroke:#cc3344;stroke-width:2}
+                  .lbl{font-size:11px;fill:#000;text-anchor:middle;font-weight:700}
+                  .lbl-sm{font-size:9px;fill:#555;text-anchor:middle;font-weight:400}
+                  .edge-lbl{font-size:8.5px;fill:#666;text-anchor:middle;font-style:italic}
+                  .line{stroke:#000;stroke-width:1.5;fill:none;marker-end:url(#arrow)}
+                  .line-plain{stroke:#000;stroke-width:1.5;fill:none}
+                </style>
+              </defs>
+
+              <!-- Row 0: Webcam -->
+              <rect class="box" x="215" y="10" width="150" height="40" rx="20"/>
+              <text class="lbl" x="290" y="35">🎥  Webcam</text>
+
+              <line class="line" x1="290" y1="50" x2="290" y2="78"/>
+
+              <!-- Row 1: YOLOv8 -->
+              <rect class="box-blue" x="185" y="80" width="210" height="50"/>
+              <text class="lbl" x="290" y="100">YOLOv8 Face Detection</text>
+              <text class="lbl-sm" x="290" y="118">(GPU · ~30 FPS)</text>
+
+              <!-- YOLO splits into 3 outputs -->
+              <!-- Left branch: Face crop → DeepFace -->
+              <line class="line-plain" x1="250" y1="130" x2="250" y2="155"/>
+              <line class="line" x1="250" y1="155" x2="250" y2="178"/>
+              <text class="edge-lbl" x="215" y="160">Face crop</text>
+
+              <!-- Right branch: Face center → Face Tracking (goes far right and down) -->
+              <line class="line-plain" x1="395" y1="105" x2="480" y2="105"/>
+              <text class="edge-lbl" x="515" y="260" transform="rotate(90,515,260)">Face center (x,y)</text>
+
+              <!-- Row 2: DeepFace -->
+              <rect class="box-blue" x="145" y="180" width="230" height="50"/>
+              <text class="lbl" x="260" y="200">DeepFace Emotion Recognition</text>
+              <text class="lbl-sm" x="260" y="218">(7 base emotions)</text>
+
+              <!-- DeepFace splits into 2 -->
+              <!-- Left: Raw probs → EmotionFilter -->
+              <line class="line" x1="190" y1="230" x2="120" y2="290"/>
+              <text class="edge-lbl" x="125" y="265">Raw probabilities</text>
+
+              <!-- Right: Raw probs → DerivedEmotionEngine -->
+              <line class="line" x1="320" y1="230" x2="360" y2="290"/>
+              <text class="edge-lbl" x="375" y="265">Raw probabilities</text>
+
+              <!-- Row 3: EmotionFilter + DerivedEmotionEngine (parallel) -->
+              <rect class="box-red" x="20" y="293" width="190" height="50"/>
+              <text class="lbl" x="115" y="313">EmotionFilter</text>
+              <text class="lbl-sm" x="115" y="331">(Confidence gating)</text>
+
+              <rect class="box-red" x="260" y="293" width="210" height="50"/>
+              <text class="lbl" x="365" y="313">DerivedEmotionEngine</text>
+              <text class="lbl-sm" x="365" y="331">(Compound emotions)</text>
+
+              <!-- Both converge → EmotionStateMachine -->
+              <line class="line" x1="140" y1="343" x2="140" y2="408"/>
+              <line class="line" x1="340" y1="343" x2="200" y2="408"/>
+
+              <!-- Row 4: EmotionStateMachine + Face Tracking (SIDE BY SIDE) -->
+              <rect class="box-red" x="35" y="410" width="210" height="50"/>
+              <text class="lbl" x="140" y="430">EmotionStateMachine</text>
+              <text class="lbl-sm" x="140" y="448">(Majority voting)</text>
+
+              <rect class="box-blue" x="350" y="410" width="195" height="50"/>
+              <text class="lbl" x="448" y="430">Face Tracking</text>
+              <text class="lbl-sm" x="448" y="448">(Proportional + EMA)</text>
+
+              <!-- Face center line terminates at Face Tracking -->
+              <line class="line-plain" x1="480" y1="105" x2="480" y2="398"/>
+              <line class="line" x1="480" y1="398" x2="480" y2="408"/>
+
+              <!-- StateMachine → TrackerController -->
+              <line class="line" x1="170" y1="460" x2="230" y2="520"/>
+              <text class="edge-lbl" x="155" y="497">Stable emotion</text>
+
+              <!-- FaceTracking → TrackerController -->
+              <line class="line" x1="410" y1="460" x2="340" y2="520"/>
+              <text class="edge-lbl" x="420" y="497">Tracking angles</text>
+
+              <!-- Row 5: TrackerController -->
+              <rect class="box" x="155" y="523" width="210" height="50"/>
+              <text class="lbl" x="260" y="543">TrackerController</text>
+              <text class="lbl-sm" x="260" y="561">(Behavior blending)</text>
+
+              <!-- TrackerController → Arduino -->
+              <line class="line" x1="260" y1="573" x2="260" y2="628"/>
+              <text class="edge-lbl" x="230" y="608">USB Serial</text>
+
+              <!-- Row 6: Arduino Uno -->
+              <rect class="box" x="175" y="630" width="170" height="45"/>
+              <text class="lbl" x="260" y="657">Arduino Uno</text>
+
+              <!-- Arduino splits → Servos + OLED -->
+              <line class="line" x1="220" y1="675" x2="140" y2="725"/>
+              <line class="line" x1="300" y1="675" x2="390" y2="725"/>
+
+              <!-- Row 7: Outputs -->
+              <rect class="box-blue" x="40" y="728" width="190" height="40"/>
+              <text class="lbl" x="135" y="753">3× SG90 Servos</text>
+
+              <rect class="box-red" x="320" y="728" width="170" height="40"/>
+              <text class="lbl" x="405" y="753">OLED Display</text>
+            </svg>
+          </div>
+          <!-- End Flowchart -->
+
+          <!-- RIGHT: Pipeline Stages -->
+          <div style="flex:1 1 340px;min-width:300px;">
+          <div class="pipeline-stages">
+            <div class="stage">
+              <div class="stage-num">1</div>
+              <div class="stage-info">
+                <strong>Webcam</strong> captures live video frames from an external 1080p camera.
+              </div>
+            </div>
+            <div class="stage">
+              <div class="stage-num">2</div>
+              <div class="stage-info">
+                <strong>YOLOv8</strong> detects the face and outputs two things: <strong>face crop</strong> (for emotion analysis)
+                + <strong>face center coordinates</strong> (for tracking).
+              </div>
+            </div>
+            <div class="stage">
+              <div class="stage-num">3</div>
+              <div class="stage-info">
+                <strong>DeepFace</strong> receives the face crop and predicts <strong>7 emotion probabilities</strong>
+                (happy, sad, angry, surprise, neutral, fear, disgust).
+              </div>
+            </div>
+            <div class="stage">
+              <div class="stage-num">4</div>
+              <div class="stage-info">
+                <strong>EmotionFilter</strong> (Layer 1) — removes noise, suppresses false positives (fear/disgust),
+                confidence gate ≥ 60%, dominance margin ≥ 15%.
+              </div>
+            </div>
+            <div class="stage">
+              <div class="stage-num">5</div>
+              <div class="stage-info">
+                <strong>DerivedEmotionEngine</strong> (Layer 2) — creates compound emotions: EXCITED (happy &gt; 0.6 AND surprise &gt; 0.2)
+                and BORED (neutral &gt; 0.9 for 5+ seconds).
+              </div>
+            </div>
+            <div class="stage">
+              <div class="stage-num">6</div>
+              <div class="stage-info">
+                <strong>EmotionStateMachine</strong> (Layer 3) — majority voting over sliding window of 12 frames,
+                threshold of 7 votes. Produces one stable final emotion.
+              </div>
+            </div>
+            <div class="stage">
+              <div class="stage-num">7</div>
+              <div class="stage-info">
+                <strong>TrackerController</strong> blends tracking angles with emotion poses into final servo commands.
+                Sends via USB serial to Arduino.
+              </div>
+            </div>
+            <div class="stage">
+              <div class="stage-num">8</div>
+              <div class="stage-info">
+                <strong>Arduino</strong> drives 3 servos (Base, Shoulder, Elbow) for arm movement and
+                renders emotion faces on the OLED display.
+              </div>
+            </div>
+          </div>
+          </div><!-- end right -->
+          </div><!-- end arch-side-by-side -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 05 · HARDWARE ===== -->
+    <section id="hardware" class="section">
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="section-num">05</span>
+          <h2>Hardware &amp; Technology Stack</h2>
+        </div>
+
+        <div class="content-block">
+          <h3>Components</h3>
+          <div class="spec-grid">
+            <div class="spec-card">
+              <div class="spec-title">COMPUTE</div>
+              <div class="spec-value">Laptop — NVIDIA RTX 3050</div>
+              <div class="spec-detail">GPU-accelerated inference for YOLOv8 + DeepFace</div>
+            </div>
+            <div class="spec-card">
+              <div class="spec-title">VISION</div>
+              <div class="spec-value">External 1080p Webcam</div>
+              <div class="spec-detail">Real-time video capture, mirror-corrected</div>
+            </div>
+            <div class="spec-card">
+              <div class="spec-title">CONTROLLER</div>
+              <div class="spec-value">Arduino Uno</div>
+              <div class="spec-detail">ATmega328P, USB Serial (COM4, 115200 baud)</div>
+            </div>
+            <div class="spec-card">
+              <div class="spec-title">ACTUATORS</div>
+              <div class="spec-value">3× SG90 Servos</div>
+              <div class="spec-detail">3-DOF arm: Base + Shoulder + Elbow</div>
+            </div>
+            <div class="spec-card">
+              <div class="spec-title">DISPLAY</div>
+              <div class="spec-value">0.96" OLED SSD1306</div>
+              <div class="spec-detail">128×64px, I²C @ 0x3C — emotion face display</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <h3>Servo Configuration</h3>
+          <div class="spec-grid" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="spec-card">
+              <div class="spec-title">JOINT 1 — BASE (D9)</div>
+              <div class="spec-value">60° – 120°</div>
+              <div class="spec-detail">Horizontal rotation (left/right face tracking)</div>
+            </div>
+            <div class="spec-card">
+              <div class="spec-title">JOINT 2 — SHOULDER (D10)</div>
+              <div class="spec-value">0° – 60°</div>
+              <div class="spec-detail">Vertical lift (up/down movement)</div>
+            </div>
+            <div class="spec-card">
+              <div class="spec-title">JOINT 3 — ELBOW (D11)</div>
+              <div class="spec-value">30° – 150°</div>
+              <div class="spec-detail">Gesture expression (emotion-driven)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <h3>Serial Protocol</h3>
+          <p>
+            Servo commands: <code>B:90 S:20 E:120\n</code> &nbsp;|&nbsp;
+            OLED commands: <code>EMO:HAPPY\n</code> &nbsp;|&nbsp;
+            Baud rate: <code>115200</code>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 06 · METHODOLOGY ===== -->
+    <section id="methodology" class="section">
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="section-num">06</span>
           <h2>Methodology</h2>
         </div>
 
+        <!-- Face Detection -->
         <div class="content-block">
-          <h3>Robot Configuration</h3>
+          <h3>Face Detection — YOLOv8n-face</h3>
           <p>
-            The manipulator is a <strong>3-DOF RRR (Revolute-Revolute-Revolute) serial manipulator</strong>.
-            Joint 1 (Base) rotates about the vertical axis, while Joints 2 (Shoulder) and 3 (Elbow) rotate
-            in the vertical plane, forming a classic anthropomorphic arm configuration.
+            <strong>Model:</strong> YOLOv8n-face (Ultralytics), trained specifically for face detection.
+            GPU-accelerated at ~30 FPS on RTX 3050.
           </p>
-          <div class="arm-params">
-            <div class="param-item">
-              <span class="param-label">Base Height ($d_1$)</span>
-              <span class="param-value">5.0 cm</span>
+          <p>Output per frame:</p>
+          <ul>
+            <li>Bounding box: x1, y1, x2, y2</li>
+            <li>Face center: face_x, face_y (used for tracking)</li>
+            <li>Cropped face image (sent to emotion model)</li>
+            <li>Mirror-corrected (horizontal flip for natural interaction)</li>
+          </ul>
+        </div>
+
+        <!-- Emotion Recognition -->
+        <div class="content-block">
+          <h3>Emotion Recognition — DeepFace</h3>
+          <p>
+            <strong>Model:</strong> DeepFace with VGG-Face backend.
+            <strong>Key optimization:</strong> <code>detector_backend = "skip"</code> —
+            since YOLO already detected the face, DeepFace skips re-detection and directly classifies.
+          </p>
+          <p>7 base emotions detected: happy, sad, angry, surprise, neutral, fear*, disgust*</p>
+          <p><em>*fear and disgust are suppressed — they are almost always false positives on webcam input.</em></p>
+        </div>
+
+        <!-- 3-Layer Pipeline -->
+        <div class="content-block">
+          <h3>3-Layer Emotion Stability Pipeline</h3>
+          <p><strong>Raw predictions are noisy — our pipeline makes them reliable.</strong></p>
+          <div class="pipeline-stages">
+            <div class="stage">
+              <div class="stage-num">L1</div>
+              <div class="stage-info">
+                <strong>EmotionFilter</strong> — Suppresses fear &amp; disgust (false positives).
+                Confidence gate ≥ 60% (rejects weak predictions). Dominance margin ≥ 15%
+                (rejects confused results). Neutral suppression — swaps to 2nd place if close.
+              </div>
             </div>
-            <div class="param-item">
-              <span class="param-label">Upper Arm ($a_2$)</span>
-              <span class="param-value">9.0 cm</span>
+            <div class="stage">
+              <div class="stage-num">L2</div>
+              <div class="stage-info">
+                <strong>DerivedEmotionEngine</strong> — Creates compound emotions DeepFace can't detect:<br>
+                <strong>EXCITED:</strong> happy &gt; 0.6 AND surprise &gt; 0.2 (simultaneously)<br>
+                <strong>BORED:</strong> neutral &gt; 0.9 for 5+ continuous seconds<br>
+                Demonstrates temporal reasoning, not just per-frame classification.
+              </div>
             </div>
-            <div class="param-item">
-              <span class="param-label">Forearm ($a_3$)</span>
-              <span class="param-value">8.0 cm</span>
+            <div class="stage">
+              <div class="stage-num">L3</div>
+              <div class="stage-info">
+                <strong>EmotionStateMachine</strong> — Majority voting over a sliding window
+                of 12 frames with a threshold of 7 votes. Emotion must appear 7/12 times
+                before the robot switches. If input is None → holds last-known-good emotion.
+                Output: one stable final_emotion string.
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- DH Parameters -->
+        <!-- Face Tracking -->
         <div class="content-block">
-          <h3>Denavit-Hartenberg Parameters</h3>
+          <h3>Face Tracking</h3>
           <p>
-            Using the standard Denavit-Hartenberg convention, each link is described by four parameters:
-            joint angle $\theta_i$, link offset $d_i$, link length $a_i$, and link twist $\alpha_i$.
+            The arm physically follows the user's face using error-based proportional control:
           </p>
+          <ul>
+            <li><strong>error_x</strong> = face_x − frame_center_x</li>
+            <li><strong>error_y</strong> = face_y − frame_center_y</li>
+            <li><strong>base</strong> = CENTER + error_x × GAIN_X</li>
+            <li><strong>shoulder</strong> = CENTER − error_y × GAIN_Y</li>
+          </ul>
+          <p><strong>Anti-Jitter Measures:</strong></p>
+          <ul>
+            <li><strong>Deadzone:</strong> 8 pixels — tiny movements are ignored</li>
+            <li><strong>EMA Smoothing</strong> (α = 0.3) — output = 0.3 × new + 0.7 × previous</li>
+            <li><strong>Minimum angle change:</strong> 2° — skip updates smaller than this</li>
+            <li><strong>Rate limiting:</strong> Max ~12 commands/sec (80ms interval)</li>
+          </ul>
+          <p>
+            <strong>Offset Calibration:</strong> Camera is on laptop, robot is on desk — they may not be aligned.
+            Error-based relative tracking only cares about deviation from center.
+            BASE_CENTER offset handles misalignment.
+          </p>
+        </div>
 
-          <div class="dh-table-container">
-            <table class="dh-table">
+        <!-- Behavior Blending -->
+        <div class="content-block">
+          <h3>Behavior Blending — Tracking + Emotion</h3>
+          <p><strong>The robot watches you AND reacts to your mood simultaneously.</strong></p>
+          <div class="spec-grid" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="spec-card">
+              <div class="spec-title">BASE SERVO</div>
+              <div class="spec-value">Tracking + Emotion Bias</div>
+              <div class="spec-detail">
+                Always follows face left/right. Emotion adds subtle directional lean
+                (e.g. ANGRY → +20° lean). Formula: base = tracking + emotion_offset
+              </div>
+            </div>
+            <div class="spec-card">
+              <div class="spec-title">SHOULDER SERVO</div>
+              <div class="spec-value">20% Tracking + 80% Emotion</div>
+              <div class="spec-detail">
+                Blends face following with emotion posture. Tracking keeps it responsive.
+                Emotion shifts the overall posture. Formula: shoulder = lerp(tracking, emotion, 0.8)
+              </div>
+            </div>
+            <div class="spec-card">
+              <div class="spec-title">ELBOW SERVO</div>
+              <div class="spec-value">100% Emotion</div>
+              <div class="spec-detail">
+                Purely driven by detected emotion — gesture intensity and expression.
+                This is where personality shows. Formula: elbow = emotion_pose_elbow
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Emotion-to-Motion Mapping -->
+        <div class="content-block">
+          <h3>Emotion → Motion Mapping</h3>
+          <p>Each stabilized emotion maps to a unique arm pose, creating an intuitive physical language:</p>
+          <div class="emotion-table">
+            <table>
               <thead>
-                <tr>
-                  <th>Link $i$</th>
-                  <th>$\theta_i$</th>
-                  <th>$d_i$ (cm)</th>
-                  <th>$a_i$ (cm)</th>
-                  <th>$\alpha_i$</th>
-                </tr>
+                <tr><th>Emotion</th><th>Base</th><th>Shoulder</th><th>Elbow</th><th>Expression</th></tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>$\theta_1^*$</td>
-                  <td>$d_1 = 5.0$</td>
-                  <td>$0$</td>
-                  <td>$90°$</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>$\theta_2^*$</td>
-                  <td>$0$</td>
-                  <td>$a_2 = 9.0$</td>
-                  <td>$0°$</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>$\theta_3^*$</td>
-                  <td>$0$</td>
-                  <td>$a_3 = 8.0$</td>
-                  <td>$0°$</td>
-                </tr>
+                <tr><td>HAPPY</td><td>100°</td><td>20°</td><td>120°</td><td>Cheerful, arm raised &amp; extended</td></tr>
+                <tr><td>EXCITED</td><td>100°</td><td>10°</td><td>140°</td><td>High energy, big extension</td></tr>
+                <tr><td>SURPRISE</td><td>90°</td><td>5°</td><td>150°</td><td>Fully extended, shocked</td></tr>
+                <tr><td>NEUTRAL</td><td>90°</td><td>0°</td><td>90°</td><td>Relaxed rest position</td></tr>
+                <tr><td>BORED</td><td>95°</td><td>10°</td><td>80°</td><td>Slightly drooped, restless</td></tr>
+                <tr><td>SAD</td><td>80°</td><td>50°</td><td>60°</td><td>Droopy, arm low &amp; folded</td></tr>
+                <tr><td>ANGRY</td><td>110°</td><td>35°</td><td>40°</td><td>Tense, folded tight</td></tr>
               </tbody>
             </table>
-            <p class="table-note">* denotes variable joint angle</p>
           </div>
         </div>
 
-        <!-- Forward Kinematics -->
+        <!-- OLED Display -->
         <div class="content-block">
-          <h3>Forward Kinematics</h3>
+          <h3>OLED Emotion Face Display</h3>
           <p>
-            The general DH transformation matrix for each link $i$ is:
+            The robot physically wears its emotion. A 128×64 SSD1306 OLED mounted on the arm
+            renders pixel-art faces corresponding to each detected emotion:
           </p>
-
-          $$A_i = \begin{bmatrix} \cos\theta_i & -\sin\theta_i\cos\alpha_i & \sin\theta_i\sin\alpha_i & a_i\cos\theta_i \\ \sin\theta_i & \cos\theta_i\cos\alpha_i & -\cos\theta_i\sin\alpha_i & a_i\sin\theta_i \\ 0 & \sin\alpha_i & \cos\alpha_i & d_i \\ 0 & 0 & 0 & 1 \end{bmatrix}$$
-
-          <p>Substituting the DH parameters for <strong>Link 1</strong> ($\alpha_1 = 90°$, $a_1 = 0$, $d_1 = 5.0$) where $a_2 = 9.0$ cm and $a_3 = 8.0$ cm:</p>
-
-          $$A_1 = \begin{bmatrix} \cos\theta_1 & 0 & \sin\theta_1 & 0 \\ \sin\theta_1 & 0 & -\cos\theta_1 & 0 \\ 0 & 1 & 0 & d_1 \\ 0 & 0 & 0 & 1 \end{bmatrix}$$
-
-          <p>For <strong>Link 2</strong> ($\alpha_2 = 0°$, $a_2 = 9.0$, $d_2 = 0$):</p>
-
-          $$A_2 = \begin{bmatrix} \cos\theta_2 & -\sin\theta_2 & 0 & a_2\cos\theta_2 \\ \sin\theta_2 & \cos\theta_2 & 0 & a_2\sin\theta_2 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{bmatrix}$$
-
-          <p>For <strong>Link 3</strong> ($\alpha_3 = 0°$, $a_3 = 8.0$, $d_3 = 0$):</p>
-
-          $$A_3 = \begin{bmatrix} \cos\theta_3 & -\sin\theta_3 & 0 & a_3\cos\theta_3 \\ \sin\theta_3 & \cos\theta_3 & 0 & a_3\sin\theta_3 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{bmatrix}$$
-
-          <p>
-            The overall transformation from the base frame to the end-effector is
-            $T_0^3 = A_1 \cdot A_2 \cdot A_3$. The <strong>end-effector position</strong>
-            is extracted from the last column:
-          </p>
-
-          $$\boxed{p_x = \cos\theta_1 \left( a_2\cos\theta_2 + a_3\cos(\theta_2 + \theta_3) \right)}$$
-          $$\boxed{p_y = \sin\theta_1 \left( a_2\cos\theta_2 + a_3\cos(\theta_2 + \theta_3) \right)}$$
-          $$\boxed{p_z = d_1 + a_2\sin\theta_2 + a_3\sin(\theta_2 + \theta_3)}$$
-        </div>
-
-        <!-- Inverse Kinematics -->
-        <div class="content-block">
-          <h3>Inverse Kinematics</h3>
-          <p>
-            Given a desired end-effector position $(p_x, p_y, p_z)$, the joint angles are
-            computed analytically using geometric decomposition.
-          </p>
-
-          <div class="ik-step">
-            <div class="ik-step-num">Step 1</div>
-            <div class="ik-step-content">
-              <strong>Base angle from the XY projection:</strong>
-              $$\theta_1 = \text{atan2}(p_y,\; p_x)$$
-            </div>
-          </div>
-
-          <div class="ik-step">
-            <div class="ik-step-num">Step 2</div>
-            <div class="ik-step-content">
-              <strong>Reduce to a 2-link planar problem:</strong>
-              $$r = \sqrt{p_x^2 + p_y^2}, \qquad s = p_z - d_1$$
-              <p>where $r$ is the radial distance in the XY plane and $s$ is the height above the shoulder.</p>
-            </div>
-          </div>
-
-          <div class="ik-step">
-            <div class="ik-step-num">Step 3</div>
-            <div class="ik-step-content">
-              <strong>Elbow angle via the law of cosines:</strong>
-              $$\cos\theta_3 = \frac{r^2 + s^2 - a_2^2 - a_3^2}{2\,a_2\,a_3} = D$$
-              $$\boxed{\theta_3 = \text{atan2}\!\left(\pm\sqrt{1 - D^2},\; D\right)}$$
-              <p>The $\pm$ gives two solutions: <em>elbow-up</em> ($+$) and <em>elbow-down</em> ($-$).</p>
-            </div>
-          </div>
-
-          <div class="ik-step">
-            <div class="ik-step-num">Step 4</div>
-            <div class="ik-step-content">
-              <strong>Shoulder angle:</strong>
-              $$\boxed{\theta_2 = \text{atan2}(s,\; r) - \text{atan2}\!\left(a_3\sin\theta_3,\; a_2 + a_3\cos\theta_3\right)}$$
-            </div>
-          </div>
-
-          <div class="content-block" style="margin-top:2rem;">
-            <h4>Workspace &amp; Reachability</h4>
-            <p>
-              A target point is reachable if and only if $|D| \le 1$. The workspace of this 3-DOF arm
-              is a hollow torus section defined by:
-            </p>
-            $$r_{\min} = |a_2 - a_3| = 1.0 \text{ cm}, \qquad r_{\max} = a_2 + a_3 = 17.0 \text{ cm}$$
-            <p>
-              Combined with the base rotation range and joint limits, this defines the physical
-              workspace envelope of the manipulator.
-            </p>
-          </div>
+          <ul>
+            <li><strong>HAPPY</strong> — Round eyes + upward smile curve</li>
+            <li><strong>SAD</strong> — Round eyes + downward frown curve</li>
+            <li><strong>ANGRY</strong> — Eyes with slanted angry eyebrows + flat mouth</li>
+            <li><strong>SURPRISE</strong> — Wide eyes + open O-shaped mouth</li>
+            <li><strong>BORED</strong> — Half-line eyes + flat mouth</li>
+            <li><strong>NEUTRAL</strong> — Normal eyes + straight line mouth</li>
+          </ul>
         </div>
 
         <!-- Control Strategy -->
         <div class="content-block">
-          <h3>Control Strategy</h3>
+          <h3>Arduino Control Strategy</h3>
           <p>
             The Arduino firmware implements a <strong>smooth-motion-with-velocity-kick</strong> algorithm.
             Each servo moves toward its target with two speed zones:
@@ -524,62 +744,59 @@
             <li><strong>Near zone</strong> (distance ≤ 15°): Slow step of 1° per cycle — precision settling</li>
           </ul>
           <p>
-            This dual-zone approach provides quick response without overshoot, with a 10 ms delay
-            between steps ensuring smooth mechanical motion. All servo values are clamped to hardware-safe
-            limits before writing.
+            10 ms delay between steps ensures smooth mechanical motion. All servo values are clamped
+            to hardware-safe limits before writing.
           </p>
-          <p>Serial command format: <code>B:90 S:20 E:120\n</code></p>
         </div>
       </div>
     </section>
 
-    <!-- ===== SIMULATION ===== -->
+    <!-- ===== 07 · SIMULATION ===== -->
     <section id="simulation" class="section">
       <div class="section-inner">
         <div class="section-header">
-          <span class="section-num">04</span>
-          <h2>Simulation</h2>
+          <span class="section-num">07</span>
+          <h2>3D Simulation</h2>
         </div>
 
         <p class="sim-intro">
-          Interactive simulation of the 3-DOF manipulator. Use <strong>FK Mode</strong> to set joint angles
-          with sliders and observe the arm configuration, or switch to <strong>IK Mode</strong> and click
-          on the canvas to set a target — the arm will solve and animate to reach it.
+          Interactive 3D simulation of the robotic arm. Adjust servo angles with sliders (FK Mode)
+          or click the emotion presets to see the arm take each emotion's physical pose.
         </p>
 
         <div class="sim-container">
           <!-- 3D Canvas -->
           <div class="sim-canvas-wrap">
             <div id="sim-3d" style="width:560px;height:420px;"></div>
-            <div class="canvas-label">3D View · Drag to orbit · Scroll to zoom · Click in IK mode to set target</div>
+            <div class="canvas-label">3D VIEW — DRAG TO ORBIT — SCROLL TO ZOOM</div>
           </div>
 
           <!-- Controls -->
           <div class="sim-controls">
             <!-- Mode Toggle -->
             <div class="mode-toggle">
-              <button id="btn-fk" class="mode-btn active" onclick="setMode('fk')">FK Mode</button>
-              <button id="btn-ik" class="mode-btn" onclick="setMode('ik')">IK Mode</button>
+              <button id="btn-fk" class="mode-btn active" onclick="setMode('fk')">FK MODE</button>
+              <button id="btn-ik" class="mode-btn" onclick="setMode('ik')">IK MODE</button>
             </div>
 
-            <!-- Joint Sliders (servo angles matching real hardware) -->
+            <!-- Joint Sliders -->
             <div class="slider-group">
               <label>
-                <span class="slider-label">Base Servo (D9)</span>
+                <span class="slider-label">BASE (D9)</span>
                 <span class="slider-value" id="val-t1">90°</span>
               </label>
               <input type="range" id="slider-t1" min="60" max="120" value="90" step="1">
             </div>
             <div class="slider-group">
               <label>
-                <span class="slider-label">Shoulder Servo (D10)</span>
+                <span class="slider-label">SHOULDER (D10)</span>
                 <span class="slider-value" id="val-t2">0°</span>
               </label>
               <input type="range" id="slider-t2" min="0" max="60" value="0" step="1">
             </div>
             <div class="slider-group">
               <label>
-                <span class="slider-label">Elbow Servo (D11)</span>
+                <span class="slider-label">ELBOW (D11)</span>
                 <span class="slider-value" id="val-t3">90°</span>
               </label>
               <input type="range" id="slider-t3" min="30" max="150" value="90" step="1">
@@ -587,21 +804,21 @@
 
             <!-- Serial Command Preview -->
             <div class="ee-display">
-              <div class="ee-title">Serial Command</div>
-              <div class="ee-row" style="justify-content:center;"><span id="serial-cmd" style="color:var(--accent);font-size:0.9rem;">B:90 S:0 E:90</span></div>
+              <div class="ee-title">SERIAL OUTPUT</div>
+              <div class="ee-row" style="justify-content:center;"><span id="serial-cmd" style="font-weight:800;font-size:0.9rem;">B:90 S:0 E:90</span></div>
             </div>
 
             <!-- Emotion Presets -->
             <div class="preset-section">
-              <div class="preset-title">Emotion Presets</div>
+              <div class="preset-title">EMOTION PRESETS</div>
               <div class="preset-buttons">
-                <button class="preset-btn" onclick="setEmotionPreset('NEUTRAL')">😐 Neutral</button>
-                <button class="preset-btn" onclick="setEmotionPreset('HAPPY')">😊 Happy</button>
-                <button class="preset-btn" onclick="setEmotionPreset('SAD')">😢 Sad</button>
-                <button class="preset-btn" onclick="setEmotionPreset('ANGRY')">😡 Angry</button>
-                <button class="preset-btn" onclick="setEmotionPreset('SURPRISE')">😲 Surprise</button>
-                <button class="preset-btn" onclick="setEmotionPreset('EXCITED')">🤩 Excited</button>
-                <button class="preset-btn" onclick="setEmotionPreset('BORED')">😴 Bored</button>
+                <button class="preset-btn" onclick="setEmotionPreset('NEUTRAL')">NEUTRAL</button>
+                <button class="preset-btn" onclick="setEmotionPreset('HAPPY')">HAPPY</button>
+                <button class="preset-btn" onclick="setEmotionPreset('SAD')">SAD</button>
+                <button class="preset-btn" onclick="setEmotionPreset('ANGRY')">ANGRY</button>
+                <button class="preset-btn" onclick="setEmotionPreset('SURPRISE')">SURPRISE</button>
+                <button class="preset-btn" onclick="setEmotionPreset('EXCITED')">EXCITED</button>
+                <button class="preset-btn" onclick="setEmotionPreset('BORED')">BORED</button>
               </div>
             </div>
           </div>
@@ -609,28 +826,29 @@
       </div>
     </section>
 
-    <!-- ===== RESULTS & PERFORMANCE ===== -->
+    <!-- ===== 08 · RESULTS ===== -->
     <section id="results" class="section">
       <div class="section-inner">
         <div class="section-header">
-          <span class="section-num">05</span>
+          <span class="section-num">08</span>
           <h2>Results &amp; Performance</h2>
         </div>
 
-        <p class="sim-intro">
-          Measured performance metrics from real-time operation on the physical hardware setup.
-        </p>
+        <div class="content-block">
+          <h3>Performance Metrics</h3>
+          <p>Measured during real-time operation on physical hardware:</p>
+        </div>
 
         <div class="results-grid">
           <div class="result-card">
             <div class="result-value">~30 <span class="result-unit">FPS</span></div>
             <div class="result-label">Face Detection</div>
-            <div class="result-detail">YOLOv8n-face on GPU</div>
+            <div class="result-detail">YOLOv8n-face on RTX 3050</div>
           </div>
           <div class="result-card">
             <div class="result-value">5–10 <span class="result-unit">FPS</span></div>
             <div class="result-label">Emotion Inference</div>
-            <div class="result-detail">DeepFace analysis (bottleneck)</div>
+            <div class="result-detail">DeepFace (pipeline bottleneck)</div>
           </div>
           <div class="result-card">
             <div class="result-value">~2 <span class="result-unit">ms</span></div>
@@ -650,51 +868,69 @@
           <div class="result-card">
             <div class="result-value">4°/1° <span class="result-unit">step</span></div>
             <div class="result-label">Motion Profile</div>
-            <div class="result-detail">Fast zone / near zone per tick</div>
+            <div class="result-detail">Fast/near zone per tick</div>
           </div>
         </div>
 
         <div class="content-block" style="margin-top:2rem;">
-          <h3>Control Architecture</h3>
-          <p>The arm uses a <strong>dual-loop always-tracking controller</strong> with emotion blending:</p>
-          <div class="pipeline-stages">
-            <div class="stage">
-              <div class="stage-num">B</div>
-              <div class="stage-info">
-                <strong>Base Servo</strong> — Face tracking (horizontal) + emotion offset.
-                Gain: 0.25 · error, 8px deadzone. EMA smoothing α=0.30.
-              </div>
+          <h3>Key Observations</h3>
+          <ul>
+            <li>Face tracking responds in real-time with smooth, jitter-free motion</li>
+            <li>Emotion transitions are stable — no rapid flickering between states</li>
+            <li>System runs continuously without Arduino freeze after applying EMA + rate limiting</li>
+            <li>Robot successfully tracks face while simultaneously expressing detected emotions</li>
+          </ul>
+        </div>
+
+        <div class="content-block">
+          <h3>Academic Areas Covered</h3>
+          <div class="spec-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+            <div class="spec-card">
+              <div class="spec-title">AI / ML</div>
+              <div class="spec-value">Computer Vision</div>
+              <div class="spec-detail">Real-time face detection and continuous tracking pipeline</div>
             </div>
-            <div class="stage">
-              <div class="stage-num">S</div>
-              <div class="stage-info">
-                <strong>Shoulder Servo</strong> — 20% face tracking (vertical) + 80% emotion pose blend.
-                Gain: 0.25 · error, EMA smoothing α=0.30.
-              </div>
+            <div class="spec-card">
+              <div class="spec-title">AI / ML</div>
+              <div class="spec-value">Deep Learning</div>
+              <div class="spec-detail">Emotion classification with multi-stage noise filtering</div>
             </div>
-            <div class="stage">
-              <div class="stage-num">E</div>
-              <div class="stage-info">
-                <strong>Elbow Servo</strong> — 100% emotion-driven (pure gesture expression).
-                Changes only when stable emotion switches.
-              </div>
+            <div class="spec-card">
+              <div class="spec-title">SIGNAL PROCESSING</div>
+              <div class="spec-value">EMA + Temporal Voting</div>
+              <div class="spec-detail">Smoothing, confidence gating, sliding window majority vote</div>
+            </div>
+            <div class="spec-card">
+              <div class="spec-title">ROBOTICS</div>
+              <div class="spec-value">Expressive Motion</div>
+              <div class="spec-detail">Emotion-to-motion mapping for emotional communication</div>
+            </div>
+            <div class="spec-card">
+              <div class="spec-title">EMBEDDED SYSTEMS</div>
+              <div class="spec-value">Arduino Control</div>
+              <div class="spec-detail">Servo control with smooth motion profiles and OLED rendering</div>
+            </div>
+            <div class="spec-card">
+              <div class="spec-title">HRI</div>
+              <div class="spec-value">Human-Robot Interaction</div>
+              <div class="spec-detail">Emotion as a sensing modality for behavior adaptation</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== VIDEO DEMO ===== -->
+    <!-- ===== 09 · VIDEO DEMO ===== -->
     <section id="video-demo" class="section">
       <div class="section-inner">
         <div class="section-header">
-          <span class="section-num">06</span>
+          <span class="section-num">09</span>
           <h2>Video Demo</h2>
         </div>
 
         <p class="sim-intro">
           Watch the full system in action — real-time face detection, emotion recognition,
-          servo-controlled arm expressions, and OLED face display working together along with a demo mode to showcase all emotions.
+          servo-controlled arm expressions, and OLED face display working together.
         </p>
 
         <div class="video-container">
@@ -711,11 +947,11 @@
           </div>
           <div class="highlight-item">
             <span class="highlight-icon">🧠</span>
-            <span>7-emotion recognition with 3-layer filtering</span>
+            <span>7-emotion recognition + 3-layer filtering</span>
           </div>
           <div class="highlight-item">
             <span class="highlight-icon">🤖</span>
-            <span>Physical arm expression with smooth motion</span>
+            <span>Physical arm poses with smooth motion</span>
           </div>
           <div class="highlight-item">
             <span class="highlight-icon">🖥️</span>
@@ -725,77 +961,69 @@
       </div>
     </section>
 
-    <!-- ===== FUTURE WORK ===== -->
-    <section id="future-work" class="section">
+    <!-- ===== 10 · CONCLUSION ===== -->
+    <section id="conclusion" class="section">
       <div class="section-inner">
         <div class="section-header">
-          <span class="section-num">07</span>
-          <h2>Future Work</h2>
+          <span class="section-num">10</span>
+          <h2>Conclusion</h2>
         </div>
 
-        <div class="future-grid">
+        <div class="content-block">
+          <p>
+            This project demonstrates that <strong>emotional perception can serve as an additional sensing
+            modality for robotic manipulators</strong>, enabling more natural and context-aware human-robot
+            interaction.
+          </p>
+          <p>
+            The system combines real-time face detection, multi-stage emotion stabilization, continuous
+            face tracking, and expressive servo control into a cohesive, reliable, and demo-ready platform.
+          </p>
+          <p><strong>From task-aware robots → to context-aware robots.</strong></p>
+        </div>
+
+        <div class="future-grid" style="margin-top:2rem;">
           <div class="future-card">
-            <h4>IK-Based Face Tracking</h4>
+            <h4>Future: IK-Based Tracking</h4>
             <p>
-              Replace the proportional face-tracking controller with a full inverse kinematics solver —
-              map face pixel coordinates to 3D workspace points and solve for joint angles analytically.
+              Replace proportional control with a full inverse kinematics solver —
+              map face pixel coordinates to 3D workspace points.
             </p>
           </div>
           <div class="future-card">
-            <h4>Multi-Face Priority</h4>
+            <h4>Future: Multi-Face Priority</h4>
             <p>
-              Extend the system to detect and prioritize multiple faces simultaneously,
-              tracking the closest or most emotionally active subject.
+              Detect and prioritize multiple faces, tracking the closest
+              or most emotionally active subject.
             </p>
           </div>
           <div class="future-card">
-            <h4>Trajectory Planning</h4>
+            <h4>Future: Trajectory Planning</h4>
             <p>
-              Implement smooth trajectory generation (e.g., cubic spline interpolation in joint space)
-              between emotion poses for more natural, fluid arm movements.
+              Cubic spline interpolation in joint space between emotion poses
+              for more natural, fluid arm movements.
             </p>
           </div>
           <div class="future-card">
-            <h4>Servo Calibration UI</h4>
+            <h4>Future: ROS 2 Integration</h4>
             <p>
-              Build a graphical tool for calibrating servo angle limits and tuning
-              emotion-to-pose mappings without modifying code.
-            </p>
-          </div>
-          <div class="future-card">
-            <h4>Extended Emotion Set</h4>
-            <p>
-              Add more derived compound emotions (e.g., CONFUSED, AMUSED) and
-              explore reinforcement learning for discovering novel arm expressions.
-            </p>
-          </div>
-          <div class="future-card">
-            <h4>ROS 2 Integration</h4>
-            <p>
-              Port the system to ROS 2 for standardized message passing, enabling
-              integration with other robotic platforms and simulation tools like Gazebo.
+              Port to ROS 2 for standardized message passing and integration
+              with simulation tools like Gazebo.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== REFERENCES ===== -->
+    <!-- ===== 11 · REFERENCES ===== -->
     <section id="references" class="section">
       <div class="section-inner">
         <div class="section-header">
-          <span class="section-num">08</span>
+          <span class="section-num">11</span>
           <h2>References</h2>
         </div>
 
         <ol class="ref-list">
-          <li>
-            J. Denavit and R. S. Hartenberg, "A Kinematic Notation for Lower-Pair Mechanisms Based on Matrices,"
-            <em>ASME Journal of Applied Mechanics</em>, vol. 22, pp. 215–221, 1955.
-          </li>
-          <li>
-            J. J. Craig, <em>Introduction to Robotics: Mechanics and Control</em>, 4th ed., Pearson, 2018.
-          </li>
           <li>
             G. Jocher, A. Chaurasia, and J. Qiu, "Ultralytics YOLO," 2023.
             Available: <a href="https://github.com/ultralytics/ultralytics" target="_blank">https://github.com/ultralytics/ultralytics</a>
@@ -818,15 +1046,18 @@
           <li>
             P. Corke, <em>Robotics, Vision and Control: Fundamental Algorithms in Python</em>, 3rd ed., Springer, 2023.
           </li>
+          <li>
+            J. J. Craig, <em>Introduction to Robotics: Mechanics and Control</em>, 4th ed., Pearson, 2018.
+          </li>
         </ol>
       </div>
     </section>
 
-    <!-- ===== CONTRIBUTORS ===== -->
+    <!-- ===== 12 · CONTRIBUTORS ===== -->
     <section id="contributors" class="section">
       <div class="section-inner">
         <div class="section-header">
-          <span class="section-num">09</span>
+          <span class="section-num">12</span>
           <h2>Contributors</h2>
         </div>
 
@@ -854,7 +1085,7 @@
         </div>
 
         <div class="institution-info">
-          <p>Group 3 · Amrita School of Artificial Intelligence · Course 22AIE214 — Artificial Intelligence in Robotics</p>
+          <p>Group 3 — Amrita School of Artificial Intelligence — Course 22AIE214: Artificial Intelligence in Robotics</p>
         </div>
       </div>
     </section>
